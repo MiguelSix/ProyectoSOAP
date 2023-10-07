@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://com.auctionSchema" targetNamespace="http://com.auctionSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="auction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="auctionID" type="xs:ID"/>
+				<xs:element name="clientID" type="xs:ID"/>
+				<xs:element name="providerID" type="xs:ID"/>
+				<xs:element name="productID" type="xs:ID"/>
+				<xs:element name="auctionDate" type="xs:date"/>
+				<xs:element name="initialPrice" type="xs:decimal"/>
+				<xs:element name="finalPrice" type="xs:decimal"/>
+				<xs:element name="status" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

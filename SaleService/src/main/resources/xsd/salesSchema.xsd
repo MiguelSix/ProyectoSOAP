@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://com.salesSchema" targetNamespace="http://com.salesSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="sale">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="saleID" type="xs:ID"/>
+				<xs:element name="clientID" type="xs:ID"/>
+				<xs:element name="providerID" type="xs:ID"/>
+				<xs:element name="productID" type="xs:ID"/>
+				<xs:element name="productQuantity" type="xs:int"/>
+				<xs:element name="productPrice" type="xs:decimal"/>
+				<xs:element name="saleDate" type="xs:date"/>
+				<xs:element name="total" type="xs:decimal"/>
+				<xs:element name="status" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
