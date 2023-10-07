@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.itq</groupId>
-	<artifactId>userService</artifactId>
+	<artifactId>UserService</artifactId>
 	<version>1.0</version>
-	<name>userService</name>
-	<description>Operaciones que puede realizar un usuario</description>
+	<name>UserService</name>
+	<description>Operaciones del esquema usuario</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -27,7 +27,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		
 		<dependency>
 			<groupId>wsdl4j</groupId>
@@ -39,7 +38,7 @@
             <artifactId>jaxb-runtime</artifactId>
             <version>2.3.1</version>
 		</dependency>
-
+		
 	</dependencies>
 
 	<build>

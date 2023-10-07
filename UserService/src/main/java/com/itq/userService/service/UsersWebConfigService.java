@@ -16,8 +16,8 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs //Habilita a la clase con la funcionalidad para crear un WS SOAP
 @Configuration //Habilita a la clase con la funcionalidad para procesar Beans
 
-public class UsersWebServiceConfig extends WsConfigurerAdapter{
-
+public class UsersWebConfigService extends WsConfigurerAdapter{
+	
 	@Bean
 	public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -34,7 +34,7 @@ public class UsersWebServiceConfig extends WsConfigurerAdapter{
 	}
 	
 	@Bean (name = "userSchema")
-	public XsdSchema userSchema() {
+	public XsdSchema productSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("xsd/userSchema.xsd"));
 	}
 

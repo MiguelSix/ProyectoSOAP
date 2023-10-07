@@ -10,20 +10,20 @@ import com.itq.userService.business.UserService;
 import com.itq.userService.dto.Ack;
 import com.itq.userService.dto.User;
 
+
 @Endpoint
 public class UsersEndpoint {
-
+	
 	private static final String NAMESPACE_URI = "http://com.userSchema";
 	@Autowired UserService userService;
 	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "User")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "user")
 	@ResponsePayload
 	
 	public Ack userRegistration(@RequestPayload User request) {
 		
 		Ack response = userService.insertUser(request); 
 		return response;
-		
 	}
 
 }

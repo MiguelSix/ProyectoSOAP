@@ -12,7 +12,7 @@ public class UserService {
 		Ack ack = new Ack();
 		
 		System.out.println("Nombre recibido: '" + user.getName() + "'");
-		
+
 		if (user.getName().equals("") || user.getLastname().equals("")) {
 			ack.setDescription("ERROR: Ingrese un valor valido");
 			ack.setCode(1);
@@ -27,6 +27,5 @@ public class UserService {
 		
 		return ack;
 	}
-
 
 }
