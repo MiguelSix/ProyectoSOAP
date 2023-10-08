@@ -24,7 +24,7 @@ public class AuctionService {
 			return false;
 		}
 
-		// Validar la fecha con el regex ^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$
+		// Validar la fecha
 		if (!auction.getAuctionDate().matches("[0-9]{2}-[0-9]{2}-[0-9]{4}")) {
 			msg = "ERROR: La fecha no tiene el formato correcto (dd-mm-yyyy)";
 			return false;

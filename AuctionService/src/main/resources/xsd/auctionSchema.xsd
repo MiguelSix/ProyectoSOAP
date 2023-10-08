@@ -7,10 +7,23 @@
 				<xs:element name="clientID" type="xs:ID"/>
 				<xs:element name="providerID" type="xs:ID"/>
 				<xs:element name="productID" type="xs:ID"/>
-				<xs:element name="auctionDate" type="xs:string"/>
+				<xs:element name="auctionDate">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{2}-[0-9]{2}-[0-9]{4}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="initialPrice" type="xs:decimal"/>
 				<xs:element name="finalPrice" type="xs:decimal"/>
-				<xs:element name="status" type="xs:string"/>
+				<xs:element name="status">
+				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Activa"/>
+							<xs:enumeration value="Inactiva"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
