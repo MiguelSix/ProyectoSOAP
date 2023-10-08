@@ -19,9 +19,9 @@ public class ProductsEndpoint {
 		@PayloadRoot(namespace = NAMESPACE_URI, localPart = "product")
 		@ResponsePayload
 		
-		public Ack productRegistration(@RequestPayload Product request) {
+		public Ack productCreation(@RequestPayload Product request) {
 			
-			Ack response = productService.insertProduct(request); 
+			Ack response = productService.createProduct(request); 
 			return response;
 			
 		}
