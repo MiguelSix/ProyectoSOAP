@@ -7,10 +7,10 @@
 				<xs:element name="clientID" type="xs:ID"/>
 				<xs:element name="providerID" type="xs:ID"/>
 				<xs:element name="productID" type="xs:ID"/>
-				<xs:element name="auctionDate" type="xs:date"/>
+				<xs:element name="auctionDate" type="xs:string"/>
 				<xs:element name="initialPrice" type="xs:decimal"/>
 				<xs:element name="finalPrice" type="xs:decimal"/>
-				<xs:element name="status" type="xs:boolean"/>
+				<xs:element name="status" type="xs:string"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

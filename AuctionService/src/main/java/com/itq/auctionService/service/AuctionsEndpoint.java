@@ -18,10 +18,35 @@ public class AuctionsEndpoint {
 		
 		@PayloadRoot(namespace = NAMESPACE_URI, localPart = "auction")
 		@ResponsePayload
-		
-		public Ack productRegistration(@RequestPayload Auction request) {
+		public Ack processAuctionRequest(@RequestPayload Auction request) {
 			
-			Ack response = auctionService.insertAuction(request); 
-			return response;
+			if (!request.getAuctionID().equals("")) {
+				if (hasFieldsForModification(request)) {
+					return auctionService.modifyAuction(request);
+				} else if (hasFieldsForConsult(request)) {
+					return auctionService.consultAuction(request.getAuctionID());
+				} else {
+					return auctionService.deleteAuction(request.getAuctionID());
+				}
+			} else {
+				return auctionService.insertAuction(request);
+			}
+		}
+
+		private boolean hasFieldsForConsult(Auction request) {
+
+			if(!request.getAuctionID().equals("") && !request.getAuctionDate().equals("")) {
+				return true;
+			}
+
+			return false; 
+		}
+		private boolean hasFieldsForModification(Auction request) {
+
+			if(!request.getAuctionID().equals("") && !request.getProviderID().equals("")) {
+				return true;
+			}
+			
+			return false;
 		}
 }

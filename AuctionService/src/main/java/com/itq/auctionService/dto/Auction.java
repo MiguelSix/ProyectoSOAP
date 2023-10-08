@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.10.07 a las 10:45:58 AM CST 
+// Generado el: 2023.10.08 a las 01:36:43 AM CST 
 //
 
 
@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -35,10 +34,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="clientID" type="{http://www.w3.org/2001/XMLSchema}ID"/&gt;
  *         &lt;element name="providerID" type="{http://www.w3.org/2001/XMLSchema}ID"/&gt;
  *         &lt;element name="productID" type="{http://www.w3.org/2001/XMLSchema}ID"/&gt;
- *         &lt;element name="auctionDate" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+ *         &lt;element name="auctionDate" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="initialPrice" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
  *         &lt;element name="finalPrice" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
- *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -82,13 +81,13 @@ public class Auction {
     @XmlSchemaType(name = "ID")
     protected String productID;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar auctionDate;
+    protected String auctionDate;
     @XmlElement(required = true)
     protected BigDecimal initialPrice;
     @XmlElement(required = true)
     protected BigDecimal finalPrice;
-    protected boolean status;
+    @XmlElement(required = true)
+    protected String status;
 
     /**
      * Obtiene el valor de la propiedad auctionID.
@@ -191,10 +190,10 @@ public class Auction {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getAuctionDate() {
+    public String getAuctionDate() {
         return auctionDate;
     }
 
@@ -203,10 +202,10 @@ public class Auction {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setAuctionDate(XMLGregorianCalendar value) {
+    public void setAuctionDate(String value) {
         this.auctionDate = value;
     }
 
@@ -261,16 +260,24 @@ public class Auction {
     /**
      * Obtiene el valor de la propiedad status.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
     /**
      * Define el valor de la propiedad status.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setStatus(boolean value) {
+    public void setStatus(String value) {
         this.status = value;
     }
 
