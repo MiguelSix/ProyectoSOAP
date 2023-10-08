@@ -52,15 +52,15 @@
 				<xs:element name="password">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:pattern value="/^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/gm"/>
+							<xs:pattern value="^.{8,15}$"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
 				<xs:element name="type">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:enumeration value="client"/>
-							<xs:enumeration value="provider"/>
+							<xs:enumeration value="cliente"/>
+							<xs:enumeration value="proveedor"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
