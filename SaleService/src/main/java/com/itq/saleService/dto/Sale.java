@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.10.07 a las 12:18:16 AM CST 
+// Generado el: 2023.10.08 a las 12:27:42 PM CST 
 //
 
 
@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -35,11 +34,44 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="clientID" type="{http://www.w3.org/2001/XMLSchema}ID"/&gt;
  *         &lt;element name="providerID" type="{http://www.w3.org/2001/XMLSchema}ID"/&gt;
  *         &lt;element name="productID" type="{http://www.w3.org/2001/XMLSchema}ID"/&gt;
- *         &lt;element name="productQuantity" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="productPrice" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
- *         &lt;element name="saleDate" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="total" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
- *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="productQuantity"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&gt;
+ *               &lt;minInclusive value="0"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="productPrice"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal"&gt;
+ *               &lt;minInclusive value="0"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="total"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}decimal"&gt;
+ *               &lt;minInclusive value="0"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="saleDate"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *               &lt;pattern value="[0-9]{2}-[0-9]{2}-[0-9]{4}"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="status"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *               &lt;enumeration value="vendida"/&gt;
+ *               &lt;enumeration value="libre"/&gt;
+ *               &lt;enumeration value="en_proceso"/&gt;
+ *               &lt;enumeration value="cancelada"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -56,11 +88,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "productID",
     "productQuantity",
     "productPrice",
-    "saleDate",
     "total",
+    "saleDate",
     "status"
 })
-@XmlRootElement(name = "Sale")
+@XmlRootElement(name = "sale")
 public class Sale {
 
     @XmlElement(required = true)
@@ -87,11 +119,11 @@ public class Sale {
     @XmlElement(required = true)
     protected BigDecimal productPrice;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar saleDate;
-    @XmlElement(required = true)
     protected BigDecimal total;
-    protected boolean status;
+    @XmlElement(required = true)
+    protected String saleDate;
+    @XmlElement(required = true)
+    protected String status;
 
     /**
      * Obtiene el valor de la propiedad saleID.
@@ -230,30 +262,6 @@ public class Sale {
     }
 
     /**
-     * Obtiene el valor de la propiedad saleDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getSaleDate() {
-        return saleDate;
-    }
-
-    /**
-     * Define el valor de la propiedad saleDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setSaleDate(XMLGregorianCalendar value) {
-        this.saleDate = value;
-    }
-
-    /**
      * Obtiene el valor de la propiedad total.
      * 
      * @return
@@ -278,18 +286,50 @@ public class Sale {
     }
 
     /**
+     * Obtiene el valor de la propiedad saleDate.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSaleDate() {
+        return saleDate;
+    }
+
+    /**
+     * Define el valor de la propiedad saleDate.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSaleDate(String value) {
+        this.saleDate = value;
+    }
+
+    /**
      * Obtiene el valor de la propiedad status.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
     /**
      * Define el valor de la propiedad status.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setStatus(boolean value) {
+    public void setStatus(String value) {
         this.status = value;
     }
 
