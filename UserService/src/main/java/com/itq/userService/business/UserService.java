@@ -84,7 +84,7 @@ public class UserService {
 		}
 
 		// Restricciones para el campo del tipo de usuario basadas en el xsd
-		
+
 		if (!user.getType().equals("cliente") && !user.getType().equals("proveedor")) {
 			msg = "ERROR: El tipo de usuario no es valido";
 			return false;
@@ -92,8 +92,10 @@ public class UserService {
 
 		return true;
 	}
-	
+
+	// Crear un usuario
 	public Ack insertUser(User user) {
+		System.out.println("Inserting user...");
 		Ack ack = new Ack();
 
 		if (isValid(user)) {
@@ -102,6 +104,56 @@ public class UserService {
 		} else {
 			ack.setDescription(msg);
 			ack.setCode(0);
+		}
+		return ack;
+	}
+
+	// Eliminar un usuario
+	public Ack deleteUser(String userID) {
+		System.out.println("Deleting user...");
+		Ack ack = new Ack();
+
+		if (userID == "") {
+			ack.setDescription("ERROR: El ID del usuario no puede estar vacio");
+			ack.setCode(0);
+		} else {
+			ack.setDescription("Usuario eliminado correctamente");
+			ack.setCode(1);
+		}
+		
+		return ack;
+	}
+
+	// Modificar un usuario
+	public Ack modifyUser(User user) {
+		System.out.println("Modifying user...");
+		Ack ack = new Ack();
+		
+		user.setType("cliente"); 	//En este caso, ya existe el usuario con tipo, por lo que simulamos esa situacion
+
+		if (isValid(user)) {
+			ack.setDescription("Usuario modificado correctamente");
+			ack.setCode(1);
+		} else {
+			ack.setDescription(msg);
+			ack.setCode(0);
+		}
+		
+		return ack;
+	}
+
+	// Consultar un usuario
+
+	public Ack consultUser(String userID) {
+		System.out.println("Consulting user...");
+		Ack ack = new Ack();
+
+		if (userID == "") {
+			ack.setDescription("ERROR: El ID del usuario no puede estar vacio");
+			ack.setCode(0);
+		} else {
+			ack.setDescription("Usuario encontrado");
+			ack.setCode(1);
 		}
 		
 		return ack;
